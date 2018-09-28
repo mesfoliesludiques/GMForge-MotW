@@ -1,0 +1,334 @@
+
+@font-face {
+    font-family: "Veteran";
+    src: url("/fonts/veteran.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Thirdman";
+    src: url("/fonts/3rdman-regular.otf") format("truetype");
+}
+
+@font-face {
+    font-family: "WarnockRegular";
+    src: url("/fonts/warnockpro-regular.otf") format("truetype");
+}
+
+.motw_charsheet{
+  background-image: url("/images/background.jpg");
+  background-size: 750px 756px;
+  font-family: WarnockRegular;
+  overflow: hidden;
+  min-height: 756px;
+  min-width: 750px;
+}
+
+.motw_charsheet h1 {
+  top: 0;
+  bottom:0;
+  font-family: Thirdman;
+  padding: 4px;
+  margin: 2px 2px 13px 2px;
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.motw_select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-overflow: '';
+    background: none;
+    border: none;
+    width: auto;
+    text-align-last: center;
+    text-align: center !important;
+    padding: 3px;
+}
+
+
+.motw_field{
+  margin: 2px;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: black;
+}
+
+.motw_field:not([type=checkbox]) {
+    border: none;
+    background: none;
+}
+
+.motw_field[type=number]::-webkit-inner-spin-button,
+.motw_field[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.motw_field[type='number'] {
+    -moz-appearance:textfield;
+    text-align: center !important;
+}
+
+.motw_pola{
+  background: url("/images/polaroid.jpg");
+    position: relative;
+  padding: 12px 12px 50px 12px;
+  width: 200px;
+  height: 245px;
+  transform: rotate(-8deg);
+  box-shadow: 1px 1px 12px rgba(0,0,0,0.5);
+}
+
+.motw_name_frame{
+  position: absolute;
+  bottom: 8px;
+  width: 176px;
+}
+
+.motw_name{
+width: 176px;
+font-size: 16px;
+text-align: center;
+}
+
+.motw_clipper_frame{
+  position: absolute;
+  top: -12px;
+  left: -5px;
+}
+
+.motw_clipper{
+  width: 60px;
+}
+
+.motw_attribute_row{
+  background-image: url("/images/stats.png");
+  padding: 38px 40px 5px 110px;
+  width: 500px;
+  height: 130px;
+  margin: 10px auto 10px auto;
+}
+
+.motw_attribute_column{
+  width: 60px;
+}
+
+.motw_attribute_column input{
+  font-size: 18px;
+}
+
+.motw_attribute{
+  text-align: center;
+  font-family: ThirdMan;
+  font-size: 20px;
+}
+
+.motw_counter_column{
+  margin-left: 40px;
+}
+
+.motw_counter_column{
+  margin-right: 5px;
+}
+
+.motw_counter {
+  background-size: 22px;
+  margin: 2px 0 2px auto;
+  height: 22px;
+}
+
+.motw_health_zones{
+  height:2px;
+  background-image: url("/images/bar.png");
+  margin-left: 66px;
+}
+
+.motw_counter_label {
+  font-family: ThirdMan;
+  font-size: 20px;
+  text-align: center;
+}
+
+.motw_counter_label .glyphicon{
+  font-size: 14px;
+}
+
+.motw_unstable{
+  margin: auto;
+  cursor: pointer;
+  width: 22px;
+  height:22px;
+}
+
+.motw_xp_column{
+  width: 30px;
+  text-align: center;
+}
+
+.motw_xp_column .motw_xp_box{
+  margin: 0 auto 0 auto;
+}
+
+.motw_part2{
+  margin: 30px 5px 0 5px;
+}
+
+.motw_panel{
+  background-image: url("/images/notes.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  display: none;
+  padding: 25px 15px 5px 15px;
+}
+
+.motw_panel_content{
+  margin: 5px 3px 5px 3px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.motw_panel_active{
+  display: flex;
+}
+
+.motw_panel_edit{
+  position: absolute;
+  cursor: pointer;
+  right: 15px;
+  top: 12px;
+}
+
+.motw_panel_edit:hover{
+  filter: invert(50%);
+}
+
+.motw_tab{
+  margin: auto;
+  padding: 2px;
+  font-size: 18px;
+  width: 80px;
+  cursor: pointer;
+}
+
+.motw_tab:hover{
+  color: #990000;
+}
+
+.motw_moves{
+  margin-top: 10px;
+  overflow-y: auto;
+  padding-bottom: 10px;
+}
+
+.motw_movelist_label{
+  margin: auto;
+  padding-top: 2px;
+}
+
+.motw_movelist_label span:hover{
+  color: #990000;
+  cursor: pointer;
+}
+
+.motw_movelist_plus{
+  font-size: 14px;
+  margin: 2px 10px 2px 2px;
+  cursor: pointer;
+}
+
+.motw_movelist_plus:hover{
+  filter: invert(50%);
+}
+
+.motw_move_description{
+    display: none;
+}
+
+.motw_move_entry{
+  background-image: url("/images/notecard.png");
+  background-size: 370px 239px;
+  background-repeat: no-repeat;
+  padding: 10px 15px 6px 15px;
+  margin-bottom: -10px;
+}
+
+#motw_move_entry{
+  padding-bottom: 0;
+}
+
+.motw_move_name{
+  margin: auto;
+}
+
+.motw_move_header{
+  cursor: pointer;
+}
+
+.motw_move_description{
+  padding-top: 14px;
+  line-height: 17px;
+  height: 210px;
+}
+
+.motw_inventory{
+  overflow-y: auto;
+  padding-top: 10px;
+}
+
+.motw_inventory_entry{
+  position: relative;
+  background-image: url("/images/itemlabel.png");
+  background-repeat: no-repeat;
+  padding: 10px 10px 6px 10px;
+  height: 75px;
+}
+
+.motw_item_name{
+  text-align: center;
+  width: 100%;
+  font-size: 16px;
+  padding: 0 0 0 45px;
+  font-family: Veteran;
+}
+
+.motw_item_description{
+  position: absolute;
+  text-align: center;
+  top: 30px;
+  left: 42px;
+  height: 45px;
+  width: 275px;
+  font-size: 14px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+/*  MOVE SHEET */
+.motw_movesheet{
+  background-image: url("/images/notecard.jpg");
+  background-size: 600px 331px;
+  font-family: WarnockRegular;
+  min-height: 355px;
+  min-width: 600px;
+}
+
+.motw_movesheet input{
+  text-align: center;
+  font-family: Thirdman;
+  font-size: 24px;
+  margin: 8px 0 8px 0;
+}
+
+.motw_movesheet_description {
+  margin: 15px;
+  background-color: rgba(255,255,255, 0.1);
+}

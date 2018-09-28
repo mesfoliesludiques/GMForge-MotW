@@ -1,0 +1,215 @@
+<div class="flex flexcolumn motw_charsheet">
+  <!-- Picture polaroid, vertical stats and counters -->
+  <div class="flexrow">
+    <div class="flexcolumn">
+      <div class="flexrow motw_pola">
+        <ui name="ui_image" />
+        <div class="motw_name_frame"><input class="motw_field motw_name" target="info.name" /></div>
+        <div class="motw_clipper_frame"><img class="motw_clipper" src="/images/trombone.png" /></div>
+      </div>
+    </div>
+    <div class="flex flexcolumn">
+      <div class="flexrow">
+        <div class="flexcolumn motw_counter_column">
+          <div class="flexrow motw_counter_label">
+            <span class='flex glyphicon glyphicon-minus smargin' style="cursor:pointer;">
+              <click>
+                <setAttr target="counters.health.current" value="eval{@health - 1}"/>
+              </click>
+            </span>
+            <span class="flex">Dégâts</span>
+            <span class='flex glyphicon glyphicon-plus smargin' style="cursor:pointer;">
+              <click>
+                <setAttr target="counters.health.current" value="eval{@health + 1}"/>
+              </click>
+            </span>
+          </div>
+          <div class="flexrow">
+            <div class="flexcolumn motw_counter" style="width: eval{22*@health}px; background-image: url('/images/health.png');"></div>
+            <div class="flexcolumn motw_counter" style="width: eval{22*(@c.counters.health.max - @health)}px;background-image: url('/images/health_unactive.png');"></div>
+          </div>
+          <div class="flexrow motw_health_zones"></div>
+      </div>
+      <div class="flexcolumn motw_counter_column">
+      <div class="flexrow motw_counter_label">
+        <span class="flex">Instable</span>
+      </div>
+            <div class="flexrow motw_unstable" style="background-image: url('/images/health.png');" cond="eval{@unstable==1}">
+               <click>
+                 <setAttr target="info.unstable" value="0"/>
+               </click>
+            </div>
+            <div class="flexrow motw_unstable" style="background-image: url('/images/health_unactive.png');" cond="eval{@unstable!=1}">
+              <click>
+                <setAttr target="info.unstable" value="1"/>
+            </click>
+            </div>
+      </div>
+      </div>
+    </div>
+</div>
+<div class="flex flexrow motw_part2">
+  <div class="flex flexcolumn">
+    <div class="flexrow">
+      <div class="flexcolumn motw_tab">
+        <span class="motw_attribute">Histoire</span>
+        <click>
+          <setAttr target="info.tab" value="0"/>
+        </click>
+      </div>
+      <div class="flexcolumn motw_tab">
+        <span class="motw_attribute">Notes</span>
+        <click>
+          <setAttr target="info.tab" value="1"/>
+        </click>
+      </div>
+    </div>
+    <div class="flex flexrow">
+      <div class="flex flexcolumn motw_panel motw_panel_active" cond="eval{@tab==0}">
+        <div class="flexrow">
+          <span class="glyphicon glyphicon-edit motw_panel_edit">
+            <click>
+              <change target="info.story"/>
+            </click>
+          </span>
+        </div>
+        <div class="flex flexrow motw_panel_content">
+          <span>traverse{info.story.current}</span>
+        </div>
+      </div>
+        <div class="flex flexcolumn motw_panel motw_panel_active"  cond="eval{@tab==1}">
+          <div class="flexrow">
+            <span class="glyphicon glyphicon-edit motw_panel_edit">
+              <click>
+                <change target="info.notes"/>
+              </click>
+            </span>
+          </div>
+          <div class="flex flexrow  motw_panel_content">
+              <span>traverse{info.notes.current}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="flex flexcolumn">
+    <div class="flexrow">
+      <div class="motw_attribute motw_movelist_label">
+        <span id="motw_powers">
+            Pouvoirs
+            <click>
+                <setAttr target="info.tab2" value="0"/>
+            </click>
+        </span>
+      <span class="glyphicon glyphicon-plus motw_movelist_plus">
+        <click>
+          <create type="move" target="powers"/>
+        </click>
+        </span>
+      </div>
+      <div class="motw_attribute motw_movelist_label">
+        <span id="motw_weaknesses">
+            Faiblesses
+            <click>
+                <setAttr target="info.tab2" value="1"/>
+            </click>
+        </span>
+        <span class="glyphicon glyphicon-plus motw_movelist_plus">
+        <click>
+          <create type="move" target="weaknesses"/>
+        </click>
+        </span>
+      </div>
+      <div class="motw_attribute motw_movelist_label">
+          <span id="motw_attacks">
+              Attaques
+            <click>
+                <setAttr target="info.tab2" value="2"/>
+            </click>
+          </span>
+        <span class="glyphicon glyphicon-plus motw_movelist_plus">
+          <click>
+            <create type="item" target="attacks"/>
+          </click>
+          </span>
+        </div>
+    </div>
+    <div class="flexrow">
+      <div class="flex flexcolumn motw_moves" cond="eval{@tab2==0}">
+        <list target="powers" connect="moveSort">
+          <div class="flex flexrow motw_move_entry">
+            <div class="flex flexcolumn">
+              <div class="flexrow motw_move_header">
+                <span class="motw_move_name"><b>eval{@%path%.info.name}</b></span>
+              <span class="glyphicon glyphicon-edit motw_movelist_plus">
+                <click>
+                  <change target="powers.%index%"/>
+                </click>
+              </span>
+                <span class="glyphicon glyphicon-trash motw_movelist_plus">
+                  <click>
+                    <delete target="powers.%index%"/>
+                  </click>
+                </span>
+          </div>
+          <div class="flexrow">
+            <span class="motw_move_description">traverse{powers.%index%.info.notes.current}</span>
+          </div>
+        </div>
+      </div>
+        </list>
+        <div class="flex flexrow motw_move_entry" id="motw_active_move">
+        </div>
+      </div>
+      <div class="flex flexcolumn motw_moves" cond="eval{@tab2==1}">
+        <list target="weaknesses" connect="moveSort">
+          <div class="flex flexrow motw_move_entry">
+            <div class="flex flexcolumn">
+              <div class="flexrow motw_move_header">
+                <span class="motw_move_name"><b>eval{@%path%.info.name}</b></span>
+                <span class="glyphicon glyphicon-edit motw_movelist_plus">
+                <click>
+                  <change target="weaknesses.%index%"/>
+                </click>
+              </span>
+                <span class="glyphicon glyphicon-trash motw_movelist_plus">
+                  <click>
+                    <delete target="weaknesses.%index%"/>
+                  </click>
+                </span>
+              </div>
+              <div class="flexrow">
+                <span class="motw_move_description">traverse{weaknesses.%index%.info.notes.current}</span>
+              </div>
+            </div>
+          </div>
+        </list>
+        <div class="flex flexrow motw_move_entry" id="motw_active_move">
+        </div>
+      </div>
+      <div class="flex flexcolumn motw_inventory"  cond="eval{@tab2==2}">
+        <list target="attacks" connect="inventorySort">
+          <div class="flex flexrow motw_inventory_entry">
+            <div class="flex flexcolumn">
+              <div class="flexrow">
+                <span class="motw_item_name"><b>eval{@%path%.info.name}</b></span>
+                <span class="motw_item_description">traverse{attacks.%index%.info.notes.current}</span>
+              <span class="glyphicon glyphicon-edit motw_movelist_plus">
+                <click>
+                  <change target="attacks.%index%"/>
+                </click>
+              </span>
+                <span class="glyphicon glyphicon-trash motw_movelist_plus">
+                  <click>
+                    <delete target="attacks.%index%"/>
+                  </click>
+                </span>
+          </div>
+        </div>
+      </div>
+        </list>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
