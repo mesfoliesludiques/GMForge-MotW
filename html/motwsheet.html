@@ -152,22 +152,14 @@
 </div>
 <div class="flex flexrow motw_part2">
   <div class="flex flexcolumn">
-    <div class="flexrow">
-      <div class="flexcolumn motw_tab motw_tab_active" id="motw_background_tab">
-        <span class="motw_attribute">Background</span>
-      </div>
-      <div class="flexcolumn motw_tab" id="motw_story_tab">
-        <span class="motw_attribute">Histoire</span>
-      </div>
-      <div class="flexcolumn motw_tab" id="motw_improvements_tab">
-        <span class="motw_attribute">Améliorations</span>
-      </div>
-      <div class="flexcolumn motw_tab" id="motw_notes_tab">
-        <span class="motw_attribute">Notes</span>
-      </div>
-    </div>
+    <tabs  class="flexrow" tab-category="left-tab" tab-selected="">
+      <tab class="flexcolumn motw_tab" primary=true> Background </tab>
+      <tab class="flexcolumn motw_tab"> Histoire </tab>
+      <tab class="flexcolumn motw_tab"> Améliorations </tab>
+      <tab class="flexcolumn motw_tab"> Notes </tab>
+    </tabs>
     <div class="flex flexrow">
-      <div class="flex flexcolumn motw_panel motw_panel_active" id="motw_background">
+      <div left-tab="Background" class="flex flexcolumn motw_panel" id="motw_background">
         <div class="flexrow">
           <span class="glyphicon glyphicon-edit motw_panel_edit">
             <click>
@@ -179,7 +171,7 @@
           <span>traverse{info.background.current}</span>
         </div>
       </div>
-        <div class="flex flexcolumn motw_panel"  id="motw_story">
+        <div left-tab="Histoire"  class="flex flexcolumn motw_panel"  id="motw_story">
           <div class="flexrow">
             <span class="glyphicon glyphicon-edit motw_panel_edit">
               <click>
@@ -191,7 +183,7 @@
             <span>traverse{info.story.current}</span>
           </div>
         </div>
-        <div class="flex flexcolumn motw_panel"  id="motw_improvements">
+        <div left-tab="Améliorations"  class="flex flexcolumn motw_panel"  id="motw_improvements">
           <div class="flexrow">
             <span class="glyphicon glyphicon-edit motw_panel_edit">
               <click>
@@ -203,7 +195,7 @@
               <span>traverse{info.improvements.current}</span>
           </div>
         </div>
-        <div class="flex flexcolumn motw_panel"  id="motw_notes">
+        <div left-tab="Notes"  class="flex flexcolumn motw_panel"  id="motw_notes">
           <div class="flexrow">
             <span class="glyphicon glyphicon-edit motw_panel_edit">
               <click>
@@ -218,27 +210,23 @@
       </div>
     </div>
   <div class="flex flexcolumn">
-    <div class="flexrow">
-      <div class="motw_attribute motw_movelist_label">
-        <span id="motw_moves">Manoeuvres</span>
+    <tabs class="flexrow" tab-category="right-tab" tab-selected="">
+      <tab class=" motw_tab motw_movelist_label" primary="true"> Manoeuvres </tab>
       <span class="glyphicon glyphicon-plus motw_movelist_plus">
         <click>
           <create type="move" target="moves"/>
         </click>
         </span>
-      </div>
       </span>
-        <div class="motw_attribute motw_movelist_label">
-          <span id="motw_inventory">Equipement</span>
-        <span class="glyphicon glyphicon-plus motw_movelist_plus">
+        <tab class="motw_tab motw_movelist_label"> Équipement </tab>
+      <span class="glyphicon glyphicon-plus motw_movelist_plus">
           <click>
             <create type="item" target="inventory"/>
           </click>
           </span>
-        </div>
-    </div>
+    </tabs>
     <div class="flexrow">
-      <div class="flex flexcolumn motw_moves">
+      <div class="flex flexcolumn motw_moves" right-tab="Manoeuvres">
         <list target="moves" connect="moveSort">
           <div class="flex flexrow motw_move_entry">
             <div class="flex flexcolumn">
@@ -264,7 +252,7 @@
         <div class="flex flexrow motw_move_entry" id="motw_active_move">
         </div>
       </div>
-      <div class="flex flexcolumn motw_inventory" style="display:none;">
+      <div class="flex flexcolumn motw_inventory"  right-tab="Équipement">
         <list target="inventory" connect="inventorySort">
           <div class="flex flexrow motw_inventory_entry">
             <div class="flex flexcolumn">

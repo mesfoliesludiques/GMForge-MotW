@@ -185,7 +185,6 @@ text-align: center;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  display: none;
   padding: 25px 15px 5px 15px;
 }
 
@@ -211,11 +210,12 @@ text-align: center;
 }
 
 .motw_tab{
-  margin: auto;
   padding: 2px;
-  font-size: 18px;
   width: 80px;
   cursor: pointer;
+  text-align: center;
+  font-family: ThirdMan;
+  font-size: 20px;
 }
 
 .motw_tab:hover{
