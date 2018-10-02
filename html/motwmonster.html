@@ -1,4 +1,4 @@
-<div class="flex flexcolumn motw_charsheet">
+<div class="flex flexcolumn motw_charsheet motw_monstersheet">
     <div class="flexrow">
         <div class="flexcolumn">
             <div class="flexrow motw_pola">
@@ -11,7 +11,6 @@
                 </div>
             </div>
             <div class="flexrow">
-                eval{@c.counters.health.max}
             </div>
             <div class="flexrow">
                 <div class="flexcolumn motw_counter_column">
@@ -24,10 +23,30 @@
                         <span class="flex hover1">
                             Dégâts
                             <click>
-                                <prompt title="Dégâts maximaux">
-                                    <userinput type='number' varname="myvalue"/>
-                                </prompt>
-                                <setAttr target="counters.health.max" value="5"/>
+                                <popout title="Dégâts maximaux" width="auto" height="auto">
+                                    <div class="flex flexcolumn margin sheet">
+                                        <div class="flexrow middle margin">
+                                            <span><b>Résistance</b></span>
+                                        </div>
+                                        <div class="flexrow middle margin">
+                                        <span class="flexcolumn hover1 margin">
+                                            <span class="glyphicon glyphicon-minus"></span>
+                                            <click>
+                                                <setAttr target="counters.health.max"
+                                                         value="@c.counters.health.max - 1"/>
+                                            </click>
+                                        </span>
+                                            <span class="flex flexcolumn"></span>
+                                        <span class="flexcolumn hover1 margin">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                            <click>
+                                                <setAttr target="counters.health.max"
+                                                         value="@c.counters.health.max + 1"/>
+                                            </click>
+                                        </span>
+                                    </div>
+                                    </div>
+                                </popout>
                             </click>
                         </span>
                         <span class='flex glyphicon glyphicon-plus smargin' style="cursor:pointer;">
@@ -43,6 +62,65 @@
                              style="width: eval{22*(@c.counters.health.max - @health)}px;background-image: url('/images/health_unactive.png');"></div>
                     </div>
                     <div class="flexrow motw_health_zones"></div>
+                </div>
+            </div>
+            <div class="flexrow motw_counter_column">
+                <div class="flex flexcolumn motw_attribute">
+                    <span>Armure</span>
+                </div>
+                <div class="flexcolumn motw_attribute">
+                    <input type="number" class="motw_field" target="stats.armor"/>
+                </div>
+            </div>
+        </div>
+        <div class="flex flexcolumn sheet1">
+            <tabs class="flexrow" tab-category="monster-tab">
+                <tab primary=true>Attaques</tab>
+                <tab>Pouvoirs</tab>
+                <tab>Faiblesses</tab>
+                <tab>Notes</tab>
+            </tabs>
+            <div monster-tab="Attaques">
+                <div class="flexrow">
+                    <span>
+                        <span class="glyphicon glyphicon-plus"></span>
+                        <click>
+                            <create type="item" target="attacks"/>
+                        </click>
+                    </span>
+                </div>
+                <div class="flex flexrow motw_panel_content">
+                    <div class="flexcolumn">
+                        <list target="attacks" connect="attackSort">
+                            <div class="flexrow">
+                                <div class="flexcolumn">
+                                    eval{'@%path%.info.name'}
+                                </div>
+                                <div class="flexcolumn">
+                                    Dégâts: eval{'@%path%.info.damage'}
+                                </div>
+                                <div class="flexcolumn">
+                                    <i>traverse{attacks.%index%.info.notes.current}</i>
+                                </div>
+                                <div class="flexcolumn">
+                                    <span class="glyphicon glyphicon-edit"></span>
+                                    <click>
+                                        <change target="attacks.%index%"/>
+                                    </click>
+                                </div>
+                            </div>
+                        </list>
+                    </div>
+                </div>
+            </div>
+            <div monster-tab="Notes">
+                <span class="glyphicon glyphicon-edit hover1">
+                    <click>
+                        <change target="info.notes"/>
+                    </click>
+                </span>
+                <div class="flex flexrow motw_panel_content">
+                    <span>traverse{info.notes.current}</span>
                 </div>
             </div>
         </div>
