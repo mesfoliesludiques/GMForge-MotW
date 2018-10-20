@@ -1,8 +1,26 @@
 <div class="flex flexcolumn motw_movesheet">
-  <div class="flexrow">
-  <input class="motw_field" target="info.name"/>
+    <div class="flexrow">
+        <div class="flexcolumn motw_item-icon">
+            <img src="/images/cube.png" cond="@i.info.type % 3 == 0"/>
+            <img src="/images/weapon.png" cond="@i.info.type % 3 == 1"/>
+            <img src="/images/armor.png" cond="@i.info.type % 3 == 2"/>
+            <click>
+                <setAttr target="info.type" value="eval{@i.info.type + 1}"/>
+            </click>
+        </div>
+        <div class="flex flexcolumn motw_item-name">
+            <input class="motw_field" target="info.name"/>
+        </div>
+    </div>
+    <div class="flexrow">
+        <div class="motw_item-value" cond="@i.info.type % 3 != 0">
+            <input type="number" class="motw_field" target="info.value"/>
+            <span class="motw_type-label" cond="@i.info.type % 3 == 1">Dégâts</span>
+            <span class="motw_type-label" cond="@i.info.type % 3 == 2">Armure</span>
+        </div>
+        <div class="flexcolumn motw_tags" edit="info.tags.current">traverse{info.tags.current}</div>
+    </div>
+    <div class="flex flexrow motw_movesheet_description">
+        <ui name="ui_rawNotesv2"/>
+    </div>
 </div>
-<div class="flex flexrow motw_movesheet_description">
-  <ui name="ui_rawNotesv2"/>
-</div>
-</div

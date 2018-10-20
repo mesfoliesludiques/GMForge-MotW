@@ -24,7 +24,7 @@
                             Dégâts
                             <click>
                                 <popout title="Dégâts maximaux" width="auto" height="auto">
-                                    <div class="flex flexcolumn margin sheet">
+                                    <div class="flex flexcolumn motw_prompt">
                                         <div class="flexrow middle margin">
                                             <span><b>Résistance</b></span>
                                         </div>
@@ -61,7 +61,6 @@
                         <div class="flexcolumn motw_counter"
                              style="width: eval{22*(@c.counters.health.max - @health)}px;background-image: url('/images/health_unactive.png');"></div>
                     </div>
-                    <div class="flexrow motw_health_zones"></div>
                 </div>
             </div>
             <div class="flexrow motw_counter_column">
@@ -73,54 +72,110 @@
                 </div>
             </div>
         </div>
-        <div class="flex flexcolumn sheet1">
-            <tabs class="flexrow" tab-category="monster-tab">
-                <tab primary=true>Attaques</tab>
-                <tab>Pouvoirs</tab>
-                <tab>Faiblesses</tab>
-                <tab>Notes</tab>
+        <div class="flex flexcolumn motw_monsterpanel">
+            <tabs class="flexrow" tab-category="monster-tab" tab-selected="flexcolumn motw_tab motw_tab-selected">
+                <tab primary=true class="flexcolumn motw_tab">Attaques</tab>
+                <tab class="flexcolumn motw_tab">Pouvoirs</tab>
+                <tab class="flexcolumn motw_tab">Faiblesses</tab>
+                <tab class="flexcolumn motw_tab">Notes</tab>
             </tabs>
-            <div monster-tab="Attaques">
-                <div class="flexrow">
-                    <span>
-                        <span class="glyphicon glyphicon-plus"></span>
+            <div class="flex flexrow" monster-tab="Attaques">
+                <div class="flex flexrow motw_panel_content">
+                    <span class="motw_movelist_plus motw_attack-plus glyphicon glyphicon-plus">
                         <click>
                             <create type="item" target="attacks"/>
                         </click>
                     </span>
-                </div>
-                <div class="flex flexrow motw_panel_content">
-                    <div class="flexcolumn">
+                    <div class="flex flexcolumn margin">
                         <list target="attacks" connect="attackSort">
                             <div class="flexrow">
-                                <div class="flexcolumn">
-                                    eval{'@%path%.info.name'}
+                                <div class="flex flexcolumn">
+                                    traverse{attacks.%index%.info.name.current}
                                 </div>
                                 <div class="flexcolumn">
-                                    Dégâts: eval{'@%path%.info.damage'}
+                                    <div class="flexrow">
+                                        <span class="motw_dmg">traverse{attacks.%index%.info.value.current}</span>
+                                    </div>
+                                </div>
+                                <div class="flex flexcolumn">
+                                    traverse{attacks.%index%.info.tags.current}
                                 </div>
                                 <div class="flexcolumn">
-                                    <i>traverse{attacks.%index%.info.notes.current}</i>
+                                    <span class="glyphicon glyphicon-eye-open motw_movelist_plus">
+                                        <click>
+                                            <chat>
+                                                <display>
+                                                    <div class="motw_display motw_chat">
+                                                        <div class="flexmiddle flex flexwrap">
+                                                            <div class="flexmiddle">
+                                                                <div class="flexcolumn flexmiddle">
+                                                                    eval{@%path%.info.tags.current}
+                                                                </div>
+                                                            </div>
+                                                            <div class="flexmiddle">
+                                                                <div class="flexcolumn flexmiddle">
+                                                                <div class="flexmiddle lrmargin dice"
+                                                                     style="width:35px;height:35px;position:relative;">
+                                                                    eval{@%path%.info.value.current}
+                                                                </div>
+                                                                <div class="subtitle">
+                                                                    <b>eval{@%path%.info.name}</b>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flexcolumn flex">
+                                                            <div cond="eval{(@%path%.info.type % 3) == 0}"
+                                                                 class="motw_roll-label">Objet</div>
+                                                            <div cond="eval{(@%path%.info.type % 3) == 1}"
+                                                                 class="motw_roll-label">Arme</div>
+                                                            <div cond="eval{(@%path%.info.type % 3) == 2}"
+                                                                 class="motw_roll-label">Armure</div>
+                                                        </div>
+                                                    </div>
+                                                </display>
+                                            </chat>
+                                        </click>
+                                    </span>
                                 </div>
                                 <div class="flexcolumn">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                    <click>
-                                        <change target="attacks.%index%"/>
-                                    </click>
+                                    <span class="glyphicon glyphicon-edit motw_movelist_plus">
+                                        <click>
+                                            <change target="attacks.%index%"/>
+                                        </click>
+                                    </span>
+                                </div>
+                                <div class="flexcolumn">
+                                    <span class="glyphicon glyphicon-trash motw_movelist_plus">
+                                        <click>
+                                            <prompt title="Confirmation">
+                                                <div class="motw_prompt">
+                                                    You are about to delete <b>eval{@%path%.info.name}</b>,<br/>
+                                                    are you sure?
+                                                </div>
+                                            </prompt>
+                                            <delete target="attacks.%index%"/>
+                                        </click>
+                                    </span>
                                 </div>
                             </div>
                         </list>
                     </div>
                 </div>
             </div>
-            <div monster-tab="Notes">
-                <span class="glyphicon glyphicon-edit hover1">
-                    <click>
-                        <change target="info.notes"/>
-                    </click>
-                </span>
-                <div class="flex flexrow motw_panel_content">
-                    <span>traverse{info.notes.current}</span>
+            <div class="flex flexrow" monster-tab="Pouvoirs">
+                <div class="flex flexcolumn motw_panel_content" edit="info.powers.current">
+                    traverse{info.powers.current}
+                </div>
+            </div>
+            <div class="flex flexrow" monster-tab="Faiblesses">
+                <div class="flex flexcolumn motw_panel_content" edit="info.weaknesses.current">
+                    traverse{info.weaknesses.current}
+                </div>
+            </div>
+            <div class="flex flexrow" monster-tab="Notes">
+                <div class="flex flexcolumn motw_panel_content" edit="info.notes.current">
+                    traverse{info.notes.current}
                 </div>
             </div>
         </div>

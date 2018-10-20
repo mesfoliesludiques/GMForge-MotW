@@ -1,281 +1,332 @@
 <div class="flex flexcolumn motw_charsheet">
-  <!-- Picture polaroid, vertical stats and counters -->
-  <div class="flexrow">
-    <div class="flexcolumn">
-      <div class="flexrow motw_pola">
-        <ui name="ui_image" />
-        <div class="motw_name_frame"><input class="motw_field motw_name" target="info.name" /></div>
-        <div class="motw_clipper_frame"><img class="motw_clipper" src="/images/trombone.png" /></div>
-      </div>
-    </div>
-    <div class="flex flexcolumn">
-      <div class="flexrow motw_attribute_row">
-        <div class="flexcolumn motw_attribute_column">
-          <div class="flexcolumn hover1 motw_roll"><span class="motw_attribute">Charme</span>
-              <click>
-                <prompt title="Jet de Charme">
-                  <div class="middle"><b>Modificateur</b></div>
-                  <userinput type="number" varname="modifier" value="0"/>
-                </prompt>
-                <chat roll="2d6+@charm+@modifier" roll-ui="motw_stat_ui"/>
-              </click>
-          </div>
-          <div class="flexcolumn"><input type="number" class="motw_field" target="stats.charm" /></div>
-        </div>
-        <div class="flexcolumn motw_attribute_column">
-          <div class="flexcolumn hover1 motw_roll"><span class="motw_attribute">Cool</span>
-              <click>
-                <prompt title="Jet de Cool">
-                  <div class="middle"><b>Modificateur</b></div>
-                  <userinput type="number" varname="modifier" value="0"/>
-                </prompt>
-                <chat roll="2d6+@cool+@modifier" roll-ui="motw_stat_ui"/>
-              </click>
+    <!-- Picture polaroid, vertical stats and counters -->
+    <div class="flexrow">
+        <div class="flexcolumn">
+            <div class="flexrow motw_pola">
+                <ui name="ui_image"/>
+                <div class="motw_name_frame"><input class="motw_field motw_name" target="info.name"/></div>
+                <div class="motw_clipper_frame"><img class="motw_clipper" src="/images/trombone.png"/></div>
             </div>
-          <div class="flexcolumn"><input type="number" class="motw_field" target="stats.cool" /></div>
         </div>
-        <div class="flexcolumn motw_attribute_column">
-          <div class="flexcolumn hover1 motw_roll"><span class="motw_attribute">Futé</span>
-              <click>
-                <prompt title="Jet de Futé">
-                  <div class="middle"><b>Modificateur</b></div>
-                  <userinput type="number" varname="modifier" value="0"/>
-                </prompt>
-                <chat roll="2d6+@sharp+@modifier" roll-ui="motw_stat_ui"/>
-              </click>
+        <div class="flex flexcolumn">
+            <div class="flexrow motw_attribute_row">
+                <div class="flexcolumn motw_attribute_column">
+                    <div class="flexcolumn motw_roll"><span class="motw_attribute">Charme</span>
+                        <click>
+                            <prompt title="Jet de Charme">
+                                <div class="motw_prompt">
+                                    <div class="middle"><b>Modificateur</b></div>
+                                    <userinput class="motw_field" type="number" varname="modifier" value="0"/>
+                                    <var roll_label="Jet de Charme" roll_img="eval{@c.info.img.current}"/>
+                                </div>
+                            </prompt>
+                            <chat roll="2d6+@charm+@modifier" roll-ui="ui_move"/>
+                        </click>
+                    </div>
+                    <div class="flexcolumn"><input type="number" class="motw_field" target="stats.charm"/></div>
+                </div>
+                <div class="flexcolumn motw_attribute_column">
+                    <div class="flexcolumn motw_roll"><span class="motw_attribute">Cool</span>
+                        <click>
+                            <prompt title="Jet de Cool">
+                                <div class="motw_prompt">
+                                    <div class="middle"><b>Modificateur</b></div>
+                                    <userinput type="number" varname="modifier" value="0" class="motw_field"/>
+                                    <var roll_label="Jet de Cool"/>
+                                </div>
+                            </prompt>
+                            <chat roll="2d6+@cool+@modifier" roll-ui="ui_move"/>
+                        </click>
+                    </div>
+                    <div class="flexcolumn"><input type="number" class="motw_field" target="stats.cool"/></div>
+                </div>
+                <div class="flexcolumn motw_attribute_column">
+                    <div class="flexcolumn motw_roll"><span class="motw_attribute">Futé</span>
+                        <click>
+                            <prompt title="Jet de Futé">
+                                <div class="motw_prompt">
+                                    <div class="middle"><b>Modificateur</b></div>
+                                    <userinput type="number" varname="modifier" class="motw_field" value="0"/>
+                                    <var roll_label="Jet de Futé"/>
+                                </div>
+                            </prompt>
+                            <chat roll="2d6+@sharp+@modifier" roll-ui="ui_move"/>
+                        </click>
+                    </div>
+                    <div class="flexcolumn"><input type="number" class="motw_field" target="stats.sharp"/></div>
+                </div>
+                <div class="flexcolumn motw_attribute_column">
+                    <div class="flexcolumn motw_roll"><span class="motw_attribute">Coriace</span>
+                        <click>
+                            <prompt title="Jet de Coriace">
+                                <div class="motw_prompt">
+                                    <div class="middle"><b>Modificateur</b></div>
+                                    <userinput class="motw_field" type="number" varname="modifier" value="0"/>
+                                    <var roll_label="Jet de Coriace"/>
+                                </div>
+                            </prompt>
+                            <chat roll="2d6+@tough+@modifier" roll-ui="ui_move"/>
+                        </click>
+                    </div>
+                    <div class="flexcolumn"><input type="number" class="motw_field" target="stats.tough"/></div>
+                </div>
+                <div class="flexcolumn motw_attribute_column">
+                    <div class="flexcolumn motw_roll"><span class="motw_attribute">Bizarre</span>
+                        <click>
+                            <prompt title="Jet de Bizarre">
+                                <div class="motw_prompt">
+                                    <div class="middle"><b>Modificateur</b></div>
+                                    <userinput class="motw_field" type="number" varname="modifier" value="0"/>
+                                    <var roll_label="Jet de Bizarre"/>
+                                </div>
+                            </prompt>
+                            <chat roll="2d6+@weird+@modifier" roll-ui="ui_move"/>
+                        </click>
+                    </div>
+                    <div class="flexcolumn"><input type="number" class="motw_field" target="stats.weird"/></div>
+                </div>
             </div>
-          <div class="flexcolumn"><input type="number" class="motw_field" target="stats.sharp" /></div>
-        </div>
-        <div class="flexcolumn motw_attribute_column">
-          <div class="flexcolumn hover1 motw_roll"><span class="motw_attribute">Coriace</span>
-              <click>
-                <prompt title="Jet de Coriace">
-                  <div class="middle"><b>Modificateur</b></div>
-                  <userinput type="number" varname="modifier" value="0"/>
-                </prompt>
-                <chat roll="2d6+@tough+@modifier" roll-ui="motw_stat_ui"/>
-              </click>
-            </div>
-          <div class="flexcolumn"><input type="number" class="motw_field" target="stats.tough" /></div>
-        </div>
-        <div class="flexcolumn motw_attribute_column">
-          <div class="flexcolumn hover1 motw_roll"><span class="motw_attribute">Bizarre</span>
-              <click>
-                <prompt title="Jet de Bizarre">
-                  <div class="middle"><b>Modificateur</b></div>
-                  <userinput type="number" varname="modifier" value="0"/>
-                </prompt>
-                <chat roll="2d6+@weird+@modifier" roll-ui="motw_stat_ui"/>
-              </click>
-            </div>
-          <div class="flexcolumn"><input type="number" class="motw_field" target="stats.weird" /></div>
-        </div>
-      </div>
-      <div class="flexrow">
-        <div class="flexcolumn motw_counter_column">
-          <div class="flexrow motw_counter_label">
-            <span class='flex glyphicon glyphicon-minus smargin' style="cursor:pointer;">
+            <div class="flexrow">
+                <div class="flexcolumn motw_counter_column">
+                    <div class="flexrow motw_counter_label">
+            <span class='flex glyphicon glyphicon-minus motw_movelist_plus' style="cursor:pointer;">
               <click>
                 <setAttr target="counters.luck.current" value="eval{@luck - 1}"/>
               </click>
             </span>
-            <span class="flex">Chance</span>
-            <span class='flex glyphicon glyphicon-plus smargin' style="cursor:pointer;">
+                        <span class="flex">Chance</span>
+                        <span class='flex glyphicon glyphicon-plus motw_movelist_plus' style="cursor:pointer;">
               <click>
                 <setAttr target="counters.luck.current" value="eval{@luck + 1}"/>
               </click>
             </span>
-          </div>
-          <div class="flexrow">
-            <div class="flexcolumn motw_counter" style="width: eval{22*@luck}px; background-image: url('/images/luck.png');"></div>
-            <div class="flexcolumn motw_counter" style="width: eval{22*(@c.counters.luck.max - @luck)}px;background-image: url('/images/health_unactive.png');"></div>
-          </div>
-      </div>
-        <div class="flexcolumn motw_counter_column">
-          <div class="flexrow motw_counter_label">
-            <span class='flex glyphicon glyphicon-minus smargin' style="cursor:pointer;">
+                    </div>
+                    <div class="flexrow">
+                        <div class="flexcolumn motw_counter"
+                             style="width: eval{22*@luck}px; background-image: url('/images/luck.png');"></div>
+                        <div class="flexcolumn motw_counter"
+                             style="width: eval{22*(@c.counters.luck.max - @luck)}px;background-image: url('/images/health_unactive.png');"></div>
+                    </div>
+                </div>
+                <div class="flexcolumn motw_counter_column">
+                    <div class="flexrow motw_counter_label">
+            <span class='flex glyphicon glyphicon-minus motw_movelist_plus' style="cursor:pointer;">
               <click>
                 <setAttr target="counters.health.current" value="eval{@health - 1}"/>
               </click>
             </span>
-            <span class="flex">Dégâts</span>
-            <span class='flex glyphicon glyphicon-plus smargin' style="cursor:pointer;">
+                        <span class="flex">Dégâts</span>
+                        <span class='flex glyphicon glyphicon-plus motw_movelist_plus' style="cursor:pointer;">
               <click>
                 <setAttr target="counters.health.current" value="eval{@health + 1}"/>
               </click>
             </span>
-          </div>
-          <div class="flexrow">
-            <div class="flexcolumn motw_counter" style="width: eval{22*@health}px; background-image: url('/images/health.png');"></div>
-            <div class="flexcolumn motw_counter" style="width: eval{22*(@c.counters.health.max - @health)}px;background-image: url('/images/health_unactive.png');"></div>
-          </div>
-          <div class="flexrow motw_health_zones"></div>
-      </div>
-      <div class="flexcolumn motw_counter_column">
-      <div class="flexrow motw_counter_label">
-        <span class="flex">Instable</span>
-      </div>
-            <div class="flexrow motw_unstable" style="background-image: url('/images/health.png');" cond="eval{@unstable==1}">
-               <click>
-                 <setAttr target="info.unstable" value="0"/>
-               </click>
+                    </div>
+                    <div class="flexrow">
+                        <div class="flexcolumn motw_counter"
+                             style="width: eval{22*@health}px; background-image: url('/images/health.png');"></div>
+                        <div class="flexcolumn motw_counter"
+                             style="width: eval{22*(@c.counters.health.max - @health)}px;background-image: url('/images/health_unactive.png');"></div>
+                    </div>
+                    <div class="flexrow motw_health_zones"></div>
+                </div>
+                <div class="flexcolumn motw_counter_column">
+                    <div class="flexrow motw_counter_label">
+                        <span class="flex">Instable</span>
+                    </div>
+                    <div class="flexrow motw_unstable" style="background-image: url('/images/health.png');"
+                         cond="eval{@unstable==1}">
+                        <click>
+                            <setAttr target="info.unstable" value="0"/>
+                        </click>
+                    </div>
+                    <div class="flexrow motw_unstable" style="background-image: url('/images/health_unactive.png');"
+                         cond="eval{@unstable!=1}">
+                        <click>
+                            <setAttr target="info.unstable" value="1"/>
+                        </click>
+                    </div>
+                </div>
             </div>
-            <div class="flexrow motw_unstable" style="background-image: url('/images/health_unactive.png');" cond="eval{@unstable!=1}">
-              <click>
-                <setAttr target="info.unstable" value="1"/>
-            </click>
-            </div>
-      </div>
-      </div>
-    </div>
-    <div class="flexcolumn motw_xp_column">
-        <div class="flexrow motw_counter_label">
-          <span class="flex">XP</span>
         </div>
-        <div class="flexrow">
-          <span class='flex glyphicon glyphicon-minus' style="cursor:pointer;">
+        <div class="flexcolumn motw_xp_column">
+            <div class="flexrow motw_counter_label">
+                <span class="flex">XP</span>
+            </div>
+            <div class="flexrow">
+          <span class='flex glyphicon glyphicon-minus motw_movelist_plus' style="cursor:pointer;">
             <click>
               <setAttr target="counters.xp.current" value="eval{@xp - 1}"/>
             </click>
           </span>
-        </div>
-        <div class="flexrow motw_xp_box" style="width: 16px; height: eval{16*@xp}px; background-image: url('/images/xp.png');"></div>
-        <div class="flexrow motw_xp_box" style="width: 16px; height: eval{16*(@c.counters.xp.max - @xp)}px;background-image: url('/images/xp_unactive.png');"></div>
-        <div class="flexrow">
-        <span class='flex glyphicon glyphicon-plus' style="cursor:pointer;">
+            </div>
+            <div class="flexrow motw_xp_box"
+                 style="height: eval{16*@xp}px; background-image: url('/images/xp.png');"></div>
+            <div class="flexrow motw_xp_box"
+                 style="height: eval{16*(@c.counters.xp.max - @xp)}px;background-image: url('/images/xp_unactive.png');"></div>
+            <div class="flexrow">
+        <span class='flex glyphicon glyphicon-plus motw_movelist_plus' style="cursor:pointer;">
           <click>
             <setAttr target="counters.xp.current" value="eval{@xp + 1}"/>
           </click>
         </span>
+            </div>
         </div>
-  </div>
-</div>
-<div class="flex flexrow motw_part2">
-  <div class="flex flexcolumn">
-    <tabs  class="flexrow" tab-category="left-tab" tab-selected="">
-      <tab class="flexcolumn motw_tab" primary=true> Background </tab>
-      <tab class="flexcolumn motw_tab"> Histoire </tab>
-      <tab class="flexcolumn motw_tab"> Améliorations </tab>
-      <tab class="flexcolumn motw_tab"> Notes </tab>
-    </tabs>
-    <div class="flex flexrow">
-      <div left-tab="Background" class="flex flexcolumn motw_panel" id="motw_background">
-        <div class="flexrow">
-          <span class="glyphicon glyphicon-edit motw_panel_edit">
-            <click>
-              <change target="info.background"/>
-            </click>
-          </span>
-        </div>
-        <div class="flex flexrow motw_panel_content">
-          <span>traverse{info.background.current}</span>
-        </div>
-      </div>
-        <div left-tab="Histoire"  class="flex flexcolumn motw_panel"  id="motw_story">
-          <div class="flexrow">
-            <span class="glyphicon glyphicon-edit motw_panel_edit">
-              <click>
-                <change target="info.story"/>
-              </click>
-            </span>
-          </div>
-          <div class="flex flexrow  motw_panel_content">
-            <span>traverse{info.story.current}</span>
-          </div>
-        </div>
-        <div left-tab="Améliorations"  class="flex flexcolumn motw_panel"  id="motw_improvements">
-          <div class="flexrow">
-            <span class="glyphicon glyphicon-edit motw_panel_edit">
-              <click>
-                <change target="info.improvements"/>
-              </click>
-            </span>
-          </div>
-          <div class="flex flexrow  motw_panel_content">
-              <span>traverse{info.improvements.current}</span>
-          </div>
-        </div>
-        <div left-tab="Notes"  class="flex flexcolumn motw_panel"  id="motw_notes">
-          <div class="flexrow">
-            <span class="glyphicon glyphicon-edit motw_panel_edit">
-              <click>
-                <change target="info.notes"/>
-              </click>
-            </span>
-          </div>
-          <div class="flex flexrow  motw_panel_content">
-              <span>traverse{info.notes.current}</span>
-          </div>
-        </div>
-      </div>
     </div>
-  <div class="flex flexcolumn">
-    <tabs class="flexrow" tab-category="right-tab" tab-selected="">
-      <tab class=" motw_tab motw_movelist_label" primary="true"> Manoeuvres </tab>
-      <span class="glyphicon glyphicon-plus motw_movelist_plus">
+    <div class="flex flexrow motw_part2">
+        <div class="flex flexcolumn">
+            <tabs class="flexrow" tab-category="left-tab" tab-selected="flexcolumn motw_tab motw_tab-selected">
+                <tab class="flexcolumn motw_tab" primary=true> Background</tab>
+                <tab class="flexcolumn motw_tab"> Histoire</tab>
+                <tab class="flexcolumn motw_tab"> Améliorations</tab>
+                <tab class="flexcolumn motw_tab"> Notes</tab>
+            </tabs>
+            <div class="flex flexrow">
+                <div left-tab="Background" class="flex flexcolumn motw_panel" id="motw_background">
+                    <div class="flex flexrow motw_panel_content">
+                        <div class="flex flexcolumn" edit="info.background.current">
+                            traverse{info.background.current}
+                        </div>
+                    </div>
+                </div>
+                <div left-tab="Histoire" class="flex flexcolumn motw_panel" id="motw_story">
+                    <div class="flex flexrow  motw_panel_content">
+                        <div class="flex flexcolumn" edit="info.story.current">
+                            traverse{info.story.current}
+                        </div>
+                    </div>
+                </div>
+                <div left-tab="Améliorations" class="flex flexcolumn motw_panel" id="motw_improvements">
+                    <div class="flex flexrow  motw_panel_content">
+                        <div class="flex flexcolumn" edit="info.improvements.current">
+                            traverse{info.improvements.current}
+                        </div>
+                    </div>
+                </div>
+                <div left-tab="Notes" class="flex flexcolumn motw_panel" id="motw_notes">
+                    <div class="flex flexrow  motw_panel_content">
+                        <div class="flex flexcolumn" edit="info.notes.current">
+                            traverse{info.notes.current}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flexcolumn">
+            <tabs class="flexrow" tab-category="right-tab"
+                  tab-selected="motw_tab motw_movelist_label motw_tab-selected">
+                <tab class=" motw_tab motw_movelist_label" primary="true"> Manoeuvres</tab>
+                <span class="glyphicon glyphicon-plus motw_movelist_plus">
         <click>
           <create type="move" target="moves"/>
         </click>
         </span>
-      </span>
-        <tab class="motw_tab motw_movelist_label"> Équipement </tab>
-      <span class="glyphicon glyphicon-plus motw_movelist_plus">
+                </span>
+                <tab class="motw_tab motw_movelist_label"> Équipement</tab>
+                <span class="glyphicon glyphicon-plus motw_movelist_plus">
           <click>
             <create type="item" target="inventory"/>
           </click>
           </span>
-    </tabs>
-    <div class="flexrow">
-      <div class="flex flexcolumn motw_moves" right-tab="Manoeuvres">
-        <list target="moves" connect="moveSort">
-          <div class="flex flexrow motw_move_entry">
-            <div class="flex flexcolumn">
-              <div class="flexrow motw_move_header">
-                <span class="motw_move_name"><b>eval{@%path%.info.name}</b></span>
-              <span class="glyphicon glyphicon-edit motw_movelist_plus">
+            </tabs>
+            <div class="flexrow">
+                <div class="flex flexcolumn motw_moves" right-tab="Manoeuvres">
+                    <list target="moves" connect="moveSort">
+                        <div class="flex flexrow motw_move_entry">
+                            <div class="flex flexcolumn">
+                                <div class="flexrow motw_move_header">
+                                    <span class="motw_move_name"><b>eval{@%path%.info.name}</b></span>
+                                    <span class="glyphicon glyphicon-edit motw_movelist_plus">
                 <click>
                   <change target="moves.%index%"/>
                 </click>
               </span>
-                <span class="glyphicon glyphicon-trash motw_movelist_plus">
+                                    <span class="glyphicon glyphicon-trash motw_movelist_plus">
                   <click>
+                      <prompt title="Confirmation">
+                          <div class="motw_prompt">
+                              Voulez-vous supprimer <b>eval{@%path%.info.name}</b>?
+                          </div>
+                      </prompt>
                     <delete target="moves.%index%"/>
                   </click>
                 </span>
-          </div>
-          <div class="flexrow">
-            <span class="motw_move_description">traverse{moves.%index%.info.notes.current}</span>
-          </div>
-        </div>
-      </div>
-        </list>
-        <div class="flex flexrow motw_move_entry" id="motw_active_move">
-        </div>
-      </div>
-      <div class="flex flexcolumn motw_inventory"  right-tab="Équipement">
-        <list target="inventory" connect="inventorySort">
-          <div class="flex flexrow motw_inventory_entry">
-            <div class="flex flexcolumn">
-              <div class="flexrow">
-                <span class="motw_item_name"><b>eval{@%path%.info.name}</b></span>
-                <span class="motw_item_description">traverse{inventory.%index%.info.notes.current}</span>
-              <span class="glyphicon glyphicon-edit motw_movelist_plus">
+                                </div>
+                                <div class="flexrow">
+                                    <span class="motw_move_description">traverse{moves.%index%.info.notes.current}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </list>
+                    <div class="flex flexrow motw_move_entry" id="motw_active_move">
+                    </div>
+                </div>
+                <div class="flex flexcolumn motw_inventory" right-tab="Équipement">
+                    <list target="inventory" connect="inventorySort">
+                        <div class="flex flexrow motw_inventory_entry">
+                            <div class="flexcolumn motw_item_buckle" cond="eval{@%path%.info.type} % 3 != 0">
+                                <img src="/images/weapon.png" cond="eval{@%path%.info.type} % 3 == 1">
+                                <img src="/images/armor.png" cond="eval{@%path%.info.type} % 3 == 2">
+                                <span>eval{@%path%.info.value}</span>
+                            </div>
+                            <div class="flex flexcolumn">
+                                <div class="flexrow">
+                                    <span class="motw_item_name"><b>eval{@%path%.info.name}</b></span>
+                                    <span class="motw_item_description">traverse{inventory.%index%.info.tags.current}</span>
+                                    <span class="glyphicon glyphicon-eye-open motw_movelist_plus">
+                                        <click>
+                                            <chat>
+                                                <display>
+                                                    <div class="motw_display motw_chat">
+                                                        <div class="flexmiddle flex flexwrap">
+                                                            <div class="flexmiddle">
+                                                                <div class="flexcolumn flexmiddle">
+                                                                    eval{@%path%.info.tags.current}
+                                                                </div>
+                                                            </div>
+                                                            <div class="flexmiddle">
+                                                                <div class="flexcolumn flexmiddle">
+                                                                <div class="flexmiddle lrmargin dice" style="width:35px;height:35px;position:relative;">
+                                                                    eval{@%path%.info.value.current}
+                                                                </div>
+                                                                <div class="subtitle">
+                                                                    <b>eval{@%path%.info.name}</b>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flexcolumn flex">
+                                                            <div cond="eval{(@%path%.info.type % 3) == 0}" class="motw_roll-label">Objet</div>
+                                                            <div cond="eval{(@%path%.info.type % 3) == 1}" class="motw_roll-label">Arme</div>
+                                                            <div cond="eval{(@%path%.info.type % 3) == 2}" class="motw_roll-label">Armure</div>
+                                                        </div>
+                                                    </div>
+                                                </display>
+                                            </chat>
+                                        </click>
+                                    </span>
+                                    <span class="glyphicon glyphicon-edit motw_movelist_plus">
                 <click>
                   <change target="inventory.%index%"/>
                 </click>
               </span>
-                <span class="glyphicon glyphicon-trash motw_movelist_plus">
+                                    <span class="glyphicon glyphicon-trash motw_movelist_plus">
                   <click>
+                      <prompt title="Confirmation">
+                          <div class="motw_prompt">
+                              Voulez-vous supprimer <b>eval{@%path%.info.name}</b>?
+                          </div>
+                      </prompt>
                     <delete target="inventory.%index%"/>
                   </click>
                 </span>
-          </div>
+                                </div>
+                            </div>
+                        </div>
+                    </list>
+                </div>
+            </div>
         </div>
-      </div>
-        </list>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
 </div>

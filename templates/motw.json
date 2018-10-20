@@ -49,7 +49,8 @@
           "name": "XP",
           "current": "0",
           "min": "0",
-          "max": "5"        }
+          "max": "5"
+        }
       },
       "inventory": [],
       "moves": [],
@@ -175,6 +176,43 @@
       }
     },
     "ui": {
+      "ui_move": {
+        "classes": "motw_display",
+        "display": {
+        },
+        "results": {
+          "classes": "flex",
+          "display": {
+            "display": [
+              {
+                "classes": "motw_roll-label",
+                "name": "@roll_label"
+              }
+            ]
+          }
+        },
+        "dice": {
+          "classes": "",
+          "results": [
+            {
+              "bottom": "Échec",
+              "cond": "@total<7"
+            },
+            {
+              "bottom": "Réussite partielle",
+              "cond": "@total>=7"
+            },
+            {
+              "bottom": "Réussite",
+              "cond": "@total>=10"
+            },
+            {
+              "bottom": "Réussite extraordinaire",
+              "cond": "@total>=12"
+            }
+          ]
+        }
+      },
       "ui_poolResults": {
         "classes": "flexrow flexaround",
         "dice": {
@@ -188,19 +226,22 @@
           },
           "display": {
             "classes": "flexrow flexaround flex",
-            "display": [{
+            "display": [
+              {
                 "classes": "flexmiddle",
                 "cond": "(@pool.s-@pool.f)>0",
                 "ui": "ui_icon",
                 "scope": {
                   "image": "/content/dice/success.png"
                 },
-                "display": [{
-                  "style": {
-                    "font-weight": "bold"
-                  },
-                  "value": "'x'+(@pool.s-@pool.f)"
-                }]
+                "display": [
+                  {
+                    "style": {
+                      "font-weight": "bold"
+                    },
+                    "value": "'x'+(@pool.s-@pool.f)"
+                  }
+                ]
               },
               {
                 "classes": "flexmiddle",
@@ -209,12 +250,14 @@
                 "scope": {
                   "image": "/content/dice/failure.png"
                 },
-                "display": [{
-                  "style": {
-                    "font-weight": "bold"
-                  },
-                  "value": "'x'+(@pool.f-@pool.s)"
-                }]
+                "display": [
+                  {
+                    "style": {
+                      "font-weight": "bold"
+                    },
+                    "value": "'x'+(@pool.f-@pool.s)"
+                  }
+                ]
               },
               {
                 "classes": "flexmiddle",
@@ -223,12 +266,14 @@
                 "scope": {
                   "image": "/content/dice/advantage.png"
                 },
-                "display": [{
-                  "style": {
-                    "font-weight": "bold"
-                  },
-                  "value": "'x'+(@pool.a-@pool.t)"
-                }]
+                "display": [
+                  {
+                    "style": {
+                      "font-weight": "bold"
+                    },
+                    "value": "'x'+(@pool.a-@pool.t)"
+                  }
+                ]
               },
               {
                 "classes": "flexmiddle",
@@ -237,12 +282,14 @@
                 "scope": {
                   "image": "/content/dice/threat.png"
                 },
-                "display": [{
-                  "style": {
-                    "font-weight": "bold"
-                  },
-                  "value": "'x'+(@pool.t-@pool.a)"
-                }]
+                "display": [
+                  {
+                    "style": {
+                      "font-weight": "bold"
+                    },
+                    "value": "'x'+(@pool.t-@pool.a)"
+                  }
+                ]
               },
               {
                 "classes": "flexmiddle",
@@ -251,12 +298,14 @@
                 "scope": {
                   "image": "/content/dice/triumph.png"
                 },
-                "display": [{
-                  "style": {
-                    "font-weight": "bold"
-                  },
-                  "value": "'x'+@pool.tri"
-                }]
+                "display": [
+                  {
+                    "style": {
+                      "font-weight": "bold"
+                    },
+                    "value": "'x'+@pool.tri"
+                  }
+                ]
               },
               {
                 "classes": "flexmiddle",
@@ -265,12 +314,14 @@
                 "scope": {
                   "image": "/content/dice/despair.png"
                 },
-                "display": [{
-                  "style": {
-                    "font-weight": "bold"
-                  },
-                  "value": "'x'+@pool.des"
-                }]
+                "display": [
+                  {
+                    "style": {
+                      "font-weight": "bold"
+                    },
+                    "value": "'x'+@pool.des"
+                  }
+                ]
               },
               {
                 "classes": "flexmiddle",
@@ -279,12 +330,14 @@
                 "scope": {
                   "image": "/content/dice/lightside.png"
                 },
-                "display": [{
-                  "style": {
-                    "font-weight": "bold"
-                  },
-                  "value": "'x'+(@pool.light-@pool.dark)"
-                }]
+                "display": [
+                  {
+                    "style": {
+                      "font-weight": "bold"
+                    },
+                    "value": "'x'+(@pool.light-@pool.dark)"
+                  }
+                ]
               },
               {
                 "classes": "flexmiddle",
@@ -293,12 +346,14 @@
                 "scope": {
                   "image": "/content/dice/darkside.png"
                 },
-                "display": [{
-                  "style": {
-                    "font-weight": "bold"
-                  },
-                  "value": "'x'+(@pool.dark-@pool.light)"
-                }]
+                "display": [
+                  {
+                    "style": {
+                      "font-weight": "bold"
+                    },
+                    "value": "'x'+(@pool.dark-@pool.light)"
+                  }
+                ]
               }
             ]
           }

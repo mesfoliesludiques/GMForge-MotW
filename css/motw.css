@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: "Veteran";
     src: url("/fonts/veteran.ttf") format("truetype");
@@ -14,33 +13,31 @@
     src: url("/fonts/warnockpro-regular.otf") format("truetype");
 }
 
-.motw_charsheet{
-  background-image: url("/images/background.jpg");
-  background-size: 750px 756px;
-  font-family: WarnockRegular;
-  overflow: hidden;
-  min-height: 756px;
-  min-width: 750px;
+@font-face {
+    font-family: "LemonTuesday";
+    src: url("/fonts/lemontuesday.otf") format("truetype");
 }
 
-.motw_monstersheet{
-  background-size: 750px 756px;
-  overflow: hidden;
-  min-height: 380px;
-  min-width: 750px;
+.motw_charsheet {
+    background-image: url("/images/background.jpg");
+    background-size: 750px 756px;
+    font-family: WarnockRegular;
+    overflow: hidden;
+    height: 756px;
+    width: 750px;
 }
 
 .motw_charsheet h1 {
-  top: 0;
-  bottom:0;
-  font-family: Thirdman;
-  padding: 4px;
-  margin: 2px 2px 13px 2px;
-  font-size: 20px;
-  background-color: black;
-  color: white;
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+    top: 0;
+    bottom: 0;
+    font-family: Thirdman;
+    padding: 4px;
+    margin: 2px 2px 13px 2px;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .motw_select {
@@ -56,13 +53,13 @@
     padding: 3px;
 }
 
-
-.motw_field{
-  margin: 2px;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  color: black;
+.motw_field {
+    font-family: ThirdMan;
+    margin: 2px;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    color: black;
 }
 
 .motw_field:not([type=checkbox]) {
@@ -79,263 +76,499 @@
 }
 
 .motw_field[type='number'] {
-    -moz-appearance:textfield;
+    -moz-appearance: textfield;
     text-align: center !important;
 }
 
-.motw_pola{
-  background: url("/images/polaroid.jpg");
+.motw_pola {
+    background: url("/images/polaroid.jpg");
     position: relative;
-  padding: 12px 12px 50px 12px;
-  width: 200px;
-  height: 245px;
-  transform: rotate(-8deg);
-  box-shadow: 1px 1px 12px rgba(0,0,0,0.5);
+    padding: 12px 12px 50px 12px;
+    width: 200px;
+    height: 245px;
+    transform: rotate(-8deg);
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.5);
 }
 
-.motw_name_frame{
-  position: absolute;
-  bottom: 8px;
-  width: 176px;
+.motw_name_frame {
+    position: absolute;
+    bottom: 8px;
+    width: 176px;
 }
 
-.motw_name{
-width: 176px;
-font-size: 16px;
-text-align: center;
+.motw_name {
+    font-family: WarnockRegular;
+    width: 176px;
+    font-size: 16px;
+    text-align: center;
 }
 
-.motw_clipper_frame{
-  position: absolute;
-  top: -12px;
-  left: -5px;
+.motw_clipper_frame {
+    position: absolute;
+    top: -12px;
+    left: -5px;
 }
 
-.motw_clipper{
-  width: 60px;
+.motw_clipper {
+    width: 60px;
 }
 
-.motw_attribute_row{
-  background-image: url("/images/stats.png");
-  padding: 38px 40px 5px 110px;
-  width: 500px;
-  height: 130px;
-  margin: 10px auto 10px auto;
+.motw_attribute_row {
+    background-image: url("/images/stats.png");
+    padding: 38px 40px 5px 110px;
+    width: 500px;
+    height: 130px;
+    margin: 10px auto 10px auto;
 }
 
-.motw_attribute_column{
-  width: 60px;
+.motw_attribute_column {
+    width: 60px;
 }
 
-.motw_attribute_column input{
-  font-size: 18px;
+.motw_attribute_column input {
+    font-size: 18px;
 }
 
-.motw_attribute{
-  text-align: center;
-  font-family: ThirdMan;
-  font-size: 20px;
+.motw_attribute {
+    text-align: center;
+    font-family: ThirdMan;
+    font-size: 20px;
 }
 
-.motw_counter_column{
-  margin-left: 40px;
+.motw_counter_column {
+    margin-left: 40px;
 }
 
-.motw_counter_column{
-  margin-right: 5px;
+.motw_counter_column {
+    margin-right: 5px;
 }
 
 .motw_counter {
-  background-size: 22px;
-  margin: 2px 0 2px auto;
-  height: 22px;
+    background-size: 22px;
+    margin: 2px 0 2px auto;
+    height: 22px;
 }
 
-.motw_health_zones{
-  height:2px;
-  background-image: url("/images/bar.png");
-  margin-left: 66px;
+.motw_health_zones {
+    height: 2px;
+    background-image: url("/images/bar.png");
+    margin-left: 66px;
 }
 
 .motw_counter_label {
-  font-family: ThirdMan;
-  font-size: 20px;
-  text-align: center;
+    font-family: ThirdMan;
+    font-size: 20px;
+    text-align: center;
 }
 
-.motw_counter_label .glyphicon{
-  font-size: 14px;
+.motw_counter_label .glyphicon {
+    font-size: 14px;
 }
 
-.motw_unstable{
-  margin: auto;
-  cursor: pointer;
-  width: 22px;
-  height:22px;
+.motw_unstable {
+    margin: auto;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
 }
 
-.motw_xp_column{
-  width: 30px;
-  text-align: center;
+.motw_xp_column {
+    width: 30px;
+    text-align: center;
 }
 
-.motw_xp_column .motw_xp_box{
-  margin: 0 auto 0 auto;
+.motw_xp_column span {
+    margin: 0 14px 0 0;
 }
 
-.motw_part2{
-  margin: 30px 5px 0 5px;
+.motw_xp_column .motw_xp_box {
+    width: 16px;
 }
 
-.motw_panel{
-  background-image: url("/images/notes.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  padding: 25px 15px 5px 15px;
+.motw_part2 {
+    margin: 30px 5px 0 5px;
 }
 
-.motw_panel_content{
-  margin: 5px 3px 5px 3px;
-  overflow-x: hidden;
-  overflow-y: auto;
+.motw_panel {
+    background-image: url("/images/notes.png");
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 25px 15px 5px 15px;
 }
 
-.motw_panel_active{
-  display: flex;
+.motw_panel_content {
+    max-height: 410px;
+    margin: 5px 3px 5px 3px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-.motw_panel_edit{
-  position: absolute;
-  cursor: pointer;
-  right: 15px;
-  top: 12px;
+.motw_panel_active {
+    display: flex;
 }
 
-.motw_panel_edit:hover{
-  filter: invert(50%);
+.motw_panel_edit {
+    position: absolute;
+    cursor: pointer;
+    right: 15px;
+    top: 12px;
 }
 
-.motw_tab{
-  padding: 2px;
-  width: 80px;
-  cursor: pointer;
-  text-align: center;
-  font-family: ThirdMan;
-  font-size: 20px;
+.motw_panel_edit:hover {
+    filter: invert(50%);
 }
 
-.motw_tab:hover{
-  color: #990000;
+.motw_tab {
+    padding: 2px;
+    width: 80px;
+    cursor: pointer;
+    text-align: center;
+    font-family: ThirdMan;
+    font-size: 20px;
 }
 
-.motw_moves{
-  margin-top: 10px;
-  overflow-y: auto;
-  padding-bottom: 10px;
+.motw_tab:hover {
+    color: #990000;
 }
 
-.motw_movelist_label{
-  margin: auto;
-  padding-top: 2px;
+.motw_tab-selected {
+    background-size: contain;
+    background: url("/images/line.png") no-repeat bottom;
 }
 
-.motw_movelist_label span:hover{
-  color: #990000;
-  cursor: pointer;
+.motw_moves {
+    margin-top: 10px;
+    overflow-y: auto;
+    padding-bottom: 10px;
 }
 
-.motw_movelist_plus{
-  font-size: 14px;
-  margin: 2px 10px 2px 2px;
-  cursor: pointer;
+.motw_roll {
+    position: relative;
 }
 
-.motw_movelist_plus:hover{
-  filter: invert(50%);
+.motw_roll:hover {
+    color: #990000;
+    cursor: pointer;
 }
 
-.motw_move_description{
+.motw_movelist_label {
+    margin: auto;
+    padding-top: 2px;
+}
+
+.motw_movelist_label span:hover {
+    color: #990000;
+    cursor: pointer;
+}
+
+.motw_movelist_plus {
+    font-size: 14px;
+    margin: 2px 10px 2px 2px;
+    cursor: pointer;
+}
+
+.motw_movelist_plus:hover {
+    text-shadow: 0 0 10px #990000;
+}
+
+.motw_move_description {
     display: none;
 }
 
-.motw_move_entry{
-  background-image: url("/images/notecard.png");
-  background-size: 370px 239px;
-  background-repeat: no-repeat;
-  padding: 10px 15px 6px 15px;
-  margin-bottom: -10px;
+.motw_move_entry {
+    background-image: url("/images/notecard2.png");
+    background-size: 370px 239px;
+    width: 370px;
+    background-repeat: no-repeat;
+    padding: 10px 15px 6px 15px;
+    margin-bottom: -10px;
 }
 
-#motw_move_entry{
-  padding-bottom: 0;
+#motw_move_entry {
+    padding-bottom: 0;
 }
 
-.motw_move_name{
-  margin: auto;
+.motw_move_name {
+    margin: auto;
 }
 
-.motw_move_header{
-  cursor: pointer;
+.motw_move_header {
+    cursor: pointer;
 }
 
-.motw_move_description{
-  padding-top: 14px;
-  line-height: 17px;
-  height: 210px;
+.motw_move_description {
+    padding-top: 14px;
+    line-height: 17px;
+    height: 210px;
 }
 
-.motw_inventory{
-  overflow-y: auto;
-  padding-top: 10px;
+.motw_inventory {
+    overflow-y: auto;
+    padding-top: 10px;
 }
 
-.motw_inventory_entry{
-  position: relative;
-  background-image: url("/images/itemlabel.png");
-  background-repeat: no-repeat;
-  padding: 10px 10px 6px 10px;
-  height: 75px;
+.motw_inventory_entry {
+    position: relative;
+    background-image: url("/images/itemlabel.png");
+    background-repeat: no-repeat;
+    padding: 10px 10px 6px 10px;
+    height: 75px;
+    width: 370px;
 }
 
-.motw_item_name{
-  text-align: center;
-  width: 100%;
-  font-size: 16px;
-  padding: 0 0 0 45px;
-  font-family: Veteran;
+.motw_item_name {
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 0 0 45px;
+    font-family: Veteran;
 }
 
-.motw_item_description{
-  position: absolute;
-  text-align: center;
-  top: 30px;
-  left: 42px;
-  height: 45px;
-  width: 275px;
-  font-size: 14px;
-  overflow-y: auto;
-  overflow-x: hidden;
+.motw_item_description {
+    position: absolute;
+    text-align: center;
+    top: 32px;
+    left: 42px;
+    height: 43px;
+    width: 275px;
+    font-size: 14px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
+.motw_item_buckle{
+    position: absolute;
+    background-image: url("/images/itemlabel_clip.png");
+    background-origin: padding-box;
+    top: -2px;
+    left: 0;
+    width: 100px;
+    height: 75px;
+}
+
+.motw_item_buckle > .flexrow{
+    position: relative;
+}
+
+.motw_item_buckle img{
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    top: 15px;
+    left: 15px;
+    -webkit-filter: drop-shadow(1px 1px 0 beige) drop-shadow(-1px -1px 0 beige);
+    filter: invert(20%) sepia(50%) drop-shadow(1px 1px 1px beige) drop-shadow(-1px -1px 1px beige);
+}
+
+.motw_item_buckle span{
+    position: absolute;
+    left: 50px;
+    bottom: 10px;
+    font-size: 26px;
+    font-family: ThirdMan;
+    color: #323932;
+    text-shadow: beige 1px 0 1px;
+}
+
+.motw_prompt{
+    font-family: WarnockRegular;
+    background-image: url("/images/grunge.jpg");
+    padding: 5px;
+    text-align: center;
+}
+
+.motw_prompt input{
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 30px;
+    height: 40px;
+    width: 40px;
+    margin: auto;
+}
 
 /*  MOVE SHEET */
-.motw_movesheet{
-  background-image: url("/images/notecard.jpg");
-  background-size: 600px 331px;
-  font-family: WarnockRegular;
-  min-height: 355px;
-  min-width: 600px;
+.motw_movesheet {
+    background-image: url("/images/grunge.jpg");
+    font-family: WarnockRegular;
+    min-height: 200px;
+    min-width: 400px;
+    padding: 5px 10px;
 }
 
-.motw_movesheet input{
-  text-align: center;
-  font-family: Thirdman;
-  font-size: 24px;
-  margin: 8px 0 8px 0;
+.motw_movesheet input {
+    text-align: center;
+    font-family: Thirdman;
+    font-size: 28px;
+    margin: 8px 0 8px 0;
 }
 
 .motw_movesheet_description {
-  margin: 15px;
-  background-color: rgba(255,255,255, 0.1);
+    margin: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.motw_tags{
+    color: black;
+    width: calc(100% - 50px);
+    height: 20px;
+    margin: 20px 10px 5px 50px;
+    border: none !important;
+}
+
+.motw_item-icon{
+    width: 56px;
+    cursor: pointer;
+}
+
+.motw_item-icon:hover{
+    filter: invert(50%);
+}
+
+.motw_item-value{
+    position: relative;
+    width: 56px;
+    height: 56px;
+}
+
+.motw_item-value > .motw_field{
+    border-radius: 8px;
+    color: white;
+    background-color: black;
+}
+
+.motw_item-name{
+    margin: 5px 66px 0 10px;
+    font-size: 22px;
+}
+
+.motw_type-label{
+    position: absolute;
+    font-size: 12px;
+    background-color: lightgrey;
+    border: 1px solid black;
+    top: 58px;
+    width: 100%;
+    text-align: center;
+}
+/*MOTW MONSTER SHEET*/
+
+.motw_monstersheet {
+    background-size: 750px 756px;
+    overflow: hidden;
+    min-height: 380px;
+    min-width: 750px;
+}
+
+.motw_dmg {
+    background-image: url("/images/blood.png") !important;
+    text-align: center !important;
+    background-position: top center;
+    background-size: 24px 24px;
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.motw_tags {
+    font-style: italic;
+    border-bottom: 1px solid black !important;
+}
+
+.motw_attackname {
+    border-bottom: 1px solid black !important;
+}
+
+.motw_monsterpanel {
+    position: relative;
+    background: url("/images/murdercard.png") no-repeat;
+    width: 518px;
+    height: 352px;
+    padding: 20px;
+    line-height: 28px;
+}
+
+.motw_monsterpanel tabs {
+    margin: 10px 0 0 90px;
+}
+
+.motw_panelplus {
+    margin: 0 5px 0 auto;
+    cursor: pointer;
+}
+
+.motw_attack-plus{
+    position: absolute;
+    top: 50px;
+    left: 28px;
+    z-index: 10;
+}
+
+/*Display*/
+.motw_display:before{
+    position: absolute;
+    background: url('/images/grunge.jpg') top left;
+    background-size: cover;
+    border-radius: 5px;
+    content: "";
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.motw_display{
+    position: relative;
+    font-family: Veteran;
+    font-size: 18px;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 20px black;
+    height: 90px;
+    z-index: 0;
+}
+
+.motw_display .flex{
+    padding: 8px 5px 5px 5px;
+}
+
+.motw_display .flexmiddle + .flexmiddle {
+    font-size: 20px;
+    font-family: Veteran;
+}
+
+.motw_display > .flex > .flexmiddle:first-of-type {
+    font-size: 14px;
+    font-family: WarnockRegular;
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    font-style: italic;
+}
+
+.motw_roll-label{
+    margin: 0 5px 5px 15px;
+    position: absolute;
+    top: 0;
+    left: 5px;
+}
+
+.motw_display .dice{
+    background: none;
+    position: absolute;
+    top: 25px;
+    right: 115px;
+    font-size: 36px;
+    font-family: ThirdMan;
+}
+
+.motw_display .dice div{
+    color: black !important;
+    font-weight: normal !important;
+}
+
+.motw_chat{
+    margin: 4px;
 }

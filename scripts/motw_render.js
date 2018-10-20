@@ -35,7 +35,6 @@ sync.render("motw_monster", function(obj, app, scope) {
     return rendered;
 });
 
-
 sync.render("motw_move", function(obj, app, scope) {
     let html = loadTemplate("html/motw_move.html");
     let rendered = sync.render("ui_processUI")(obj, app, {display : html});
